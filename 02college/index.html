@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/jquery.bxslider.css">
     <link rel="stylesheet" href="css/style.css">
+
 
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/jquery.bxslider.js"></script>
@@ -47,6 +49,7 @@
         /* section  */
         .contentWrap>ul>li{
             float: left;width: 25%;height: 225px;
+            position: relative;
         }
         .contentWrap>ul>li:nth-child(1){
             width: 75%;height: 450px;
@@ -67,9 +70,43 @@
         .contentWrap>ul>li:nth-child(7){background-color: violet;}
         .contentWrap>ul>li:nth-child(8){background-color: #fff;}
 
+
+
+        .bx-wrapper {
+            -moz-box-shadow: 0 0 0 transparent;
+            -webkit-box-shadow: 0 0 0 transparent;
+            box-shadow: 0 0 0 transparent;
+            border: 0 none;
+            margin-bottom: 0;
+        }
+        .bx-wrapper .bx-pager{
+            bottom: 30px;
+        }
+
+
+        .contentWrap>ul>li:nth-child(1) .next,
+        .contentWrap>ul>li:nth-child(1) .prev{
+            position: absolute;top:50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .contentWrap>ul>li:nth-child(1) .next{right: 0;}
+        .contentWrap>ul>li:nth-child(1) .prev{left: 0;}
     </style>
     <script>
-        $(document).
+        $(document).ready(function(){
+            var myslider1 = $(".slider").bxSlider({
+                controls:false
+            });
+
+            $(".next").click(function(){
+                myslider1.goToNextSlide()
+            });
+            $(".prev").click(function(){
+                myslider1.goToPrevSlide()
+            });
+        });
     </script>
 </head>
 <body>
@@ -109,11 +146,19 @@
         </div>
         <div class="container contentWrap">
             <ul class="clearfix">
-                <li class="slider">
+                <li>
                     <!-- size 900*450 -->
-                    <img src="images/slide01.png" alt="">
-                    <img src="images/slide01.png" alt="">
-                    <img src="images/slide01.png" alt="">
+                   <ul class="slider">
+                       <li><img src="images/slide01.png" alt=""></li>
+                       <li><img src="images/slide02.png" alt=""></li>
+                       <li><img src="images/slide03.png" alt=""></li>
+                   </ul>
+                   <div class="prev">
+                       <img src="images/arrow01.png" alt="">
+                   </div>
+                   <div class="next">
+                        <img src="images/arrow02.png" alt="">
+                   </div>
 
                 </li>
                 <li>2</li>
