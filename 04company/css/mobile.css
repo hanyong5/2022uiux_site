@@ -4,28 +4,33 @@
 
     /* header */
     #header{top:0;z-index: 99999;}
-    #header .lang{display: none;}
+    #header .lang{position: fixed;right: 16px;bottom: 16px;display: none;}
     #header .navbarWrap{
         width: 100%;padding:0 20px
     }
     #header .navbar{
         position: fixed;margin:initial;
         width: 100%;height: 100%;
-        background: skyblue;
-        top:0;left: 0;display: none;
+        background: #eee;
+        top:0;left: -100%;transition:0.3s;
+        display: flex;justify-content: center;align-items: center;
     }
+    
     #header .navbar ul{
-        display: block;width:initial;
+        display: block;width:80%;
     }
+    #header .navbar li{width: 100%;font-weight: bold;}
+    #header .navbar li:after{display: none;}
+    #header .navbar li a{color:#666;font-size:20px}
 
     .toggle{
         display: block;position: fixed;top:18px;right:16px;
-        width: 24px;height: 24px;
+        width: 24px;height: 24px;cursor: pointer;
         display: flex;justify-content: center;align-items: center;
         }
     .toggle div{
         width: 20px;height: 2px;background: #000;
-        position: absolute;transition:0.3s;cursor: pointer;
+        position: absolute;transition:0.3s;
     }
     .toggle .bar1{transform: translateY(-6px);}
     .toggle .bar3{transform: translateY(6px);}
@@ -39,8 +44,9 @@
 
 
     /* visual */
-    .visualWrap{height: 400px;}
-    .visualWrap .sImg{height: 400px;min-height: initial;}
+    .visualWrap{height: 100vh;}
+    .visualWrap .sImg{height: 100vh;min-height: initial;}
     .visualWrap .bx-wrapper .bx-pager{bottom:10px}
     .visualWrap .txtBody{text-align: left;transform: translateY(0);}
-}
+    .visualWrap .bx-controls{display: none;}
+}   

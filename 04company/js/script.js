@@ -41,5 +41,33 @@ $(document).ready(function(){
         }
     })
 
+        const $toElem = $(".toggle");
+        let chk = true;
+
+        $toElem.click(function(){
+            console.log("click")
+
+            if(chk == true){
+                $(this).addClass("active");
+                $(".navbar").css({left:0})
+                $(".lang").css("display","flex");
+                chk = false;
+            }else{
+                $(this).removeClass("active");
+                $(".navbar").css({left:"-100%"})
+                $(".lang").hide();
+                chk = true;
+            }
+        })
+
+        
+        $(window).resize(function(){
+            $(".toggle").removeClass("active");
+            $(".navbar").removeAttr("style");
+            $(".lang").removeAttr("style");
+        })
+
 
 }); //ready
+
+
